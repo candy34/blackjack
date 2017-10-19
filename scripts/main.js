@@ -11,36 +11,43 @@
 
 function handValue(hand) {
 
-  let handC = [];
-  let handTotalA = 0;
-  let handTotalC = 0;
-  let handTotalH = 0;
-  let handTotalF = 0;
+let handA=[];
+  let handTotalA = 0
+  let handTotalC = 0
+  let handTotalH = 0
+  let handTotalF = 0
   let output = 0;
 
+
+
   for (let i = 0; i < hand.length; i++) {
-    if (hand[i] === "C") {
-      handC.push(hand[i] === "K" || hand[i] === "J" || hand[i] === "Q")
-        hand[i] = 10;
+    if (hand[i] === "A") {
+      handA.push(hand[i]);
+    }else if  (hand[i]   === "K" || hand[i] === "J" || hand[i] === "Q") {
+     hand[i] = 10;
         handTotalH + hand[i];
 
 
-      }
-    handTotalA += (parseInt(hand[i], 10));
+  } else  {
+    handTotalC += (parseInt(hand[i], 10));
   }
 }
 
 handTotalF = (handTotalH + handTotalA);
 
-for (let q = 0; q < handC.length; q++) {
+for (let q = 0; q < handA.length; q++) {
   if (handTotalF >= 11) {
-    handC[q] = 11;
-    handTotalC += handC[q];
+    handA[q] = 11;
+}else{
+    handTotalA += handA[q];
   }
 }
-output = (handTotalC + handTotalF)
+output = (handTotalA + handTotalF)
+
+
 console.log(output);
-// return (output);
+return (output);
+}
 
 
 /* -----  Hints ------
